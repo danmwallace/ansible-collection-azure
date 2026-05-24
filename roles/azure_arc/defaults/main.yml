@@ -1,0 +1,5 @@
+# SPDX-License-Identifier: MIT
+---
+# All variables for this role are required and have no sensible defaults.
+# See meta/argument_specs.yml for the full interface; supply `azure` via
+# group_vars/host_vars (typically vault-encrypted).

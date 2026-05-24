@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: MIT
+---
+galaxy_info:
+  role_name: azure_arc
+  namespace: danmwallace
+  author: Dan Wallace
+  description: Install and connect the Azure Connected Machine Agent (Azure Arc) on Linux hosts.
+  license: MIT
+  min_ansible_version: "2.16"
+  platforms:
+    - name: Debian
+      versions:
+        - bookworm
+    - name: Ubuntu
+      versions:
+        - jammy
+        - noble
+    - name: Fedora
+      versions:
+        - "40"
+        - "41"
+    - name: EL
+      versions:
+        - "9"
+  galaxy_tags:
+    - azure
+    - arc
+    - cloud
+    - hybrid
+    - monitoring
+dependencies: []

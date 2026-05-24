@@ -1,0 +1,14 @@
+# SPDX-License-Identifier: MIT
+---
+dependency:
+  name: galaxy
+scenario:
+  test_sequence:
+    - dependency
+    - destroy
+    - create
+    - converge
+    - idempotence
+    - verify
+    - cleanup
+    - destroy

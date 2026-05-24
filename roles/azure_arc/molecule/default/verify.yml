@@ -1,0 +1,17 @@
+# SPDX-License-Identifier: MIT
+---
+- name: Verify
+  hosts: molecule
+  gather_facts: false
+  tasks:
+    - name: Stat azcmagent binary
+      ansible.builtin.stat:
+        path: /usr/bin/azcmagent
+      register: azure_arc_verify_bin
+
+    - name: Assert azcmagent is installed
+      ansible.builtin.assert:
+        that:
+          - azure_arc_verify_bin.stat.exists
+          - azure_arc_verify_bin.stat.executable
+        fail_msg: "azcmagent was not installed at /usr/bin/azcmagent"

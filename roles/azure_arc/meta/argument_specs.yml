@@ -1,0 +1,44 @@
+# SPDX-License-Identifier: MIT
+---
+argument_specs:
+  main:
+    short_description: Install and connect the Azure Connected Machine Agent (Azure Arc) on Linux hosts.
+    description:
+      - Downloads and installs the Azure Connected Machine Agent (azcmagent), then
+        registers the host with Azure Arc using a service principal.
+      - All connection parameters are required and are typically supplied via
+        Ansible Vault.
+    author:
+      - Dan Wallace
+    options:
+      azure:
+        description: Azure connection parameters used to register the host with Azure Arc.
+        type: dict
+        required: true
+        options:
+          service_principal_id:
+            description: Application (client) ID of the service principal used for onboarding.
+            type: str
+            required: true
+            no_log: true
+          service_principal_secret:
+            description: Client secret of the onboarding service principal.
+            type: str
+            required: true
+            no_log: true
+          tenant_id:
+            description: Azure AD tenant ID that owns the subscription.
+            type: str
+            required: true
+          subscription_id:
+            description: Subscription ID where the Arc-enabled server resource will be created.
+            type: str
+            required: true
+          resource_group:
+            description: Resource group that will contain the Arc-enabled server resource.
+            type: str
+            required: true
+          location:
+            description: Azure region for the Arc-enabled server resource (e.g. eastus, westus2).
+            type: str
+            required: true

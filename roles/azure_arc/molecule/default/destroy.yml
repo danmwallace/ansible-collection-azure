@@ -1,0 +1,10 @@
+# SPDX-License-Identifier: MIT
+---
+- name: Destroy
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Remove container
+      containers.podman.podman_container:
+        name: azure_arc_molecule
+        state: absent

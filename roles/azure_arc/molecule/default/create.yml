@@ -1,0 +1,20 @@
+# SPDX-License-Identifier: MIT
+---
+- name: Create
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Start container
+      containers.podman.podman_container:
+        name: azure_arc_molecule
+        image: quay.io/centos/centos:stream9
+        state: started
+        command: sleep infinity
+        detach: true
+
+    - name: Add container to inventory
+      ansible.builtin.add_host:
+        name: instance
+        groups: molecule
+        ansible_connection: containers.podman.podman
+        ansible_python_interpreter: /usr/bin/python3
